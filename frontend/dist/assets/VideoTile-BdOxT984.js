@@ -1,0 +1,1 @@
+import{R as i,j as s}from"./index-DDoEHnfR.js";const o=({stream:e,muted:n=!1,label:t})=>{const r=i.useRef();return i.useEffect(()=>{r.current&&e&&(r.current.srcObject=e)},[e]),s.jsxs("div",{style:{margin:8},children:[s.jsx("video",{ref:r,autoPlay:!0,playsInline:!0,muted:n,style:{width:320,borderRadius:8,background:"#000"}}),t&&s.jsx("div",{children:t})]})};export{o as V};

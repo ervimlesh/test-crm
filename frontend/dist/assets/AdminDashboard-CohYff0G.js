@@ -1,0 +1,1 @@
+import{j as s}from"./index-DDoEHnfR.js";import{L as r}from"./Layout-Co7qzEc2.js";import{S as a}from"./SideBar-DCoEgSRU.js";const o=()=>s.jsx(s.Fragment,{children:s.jsx(r,{children:s.jsxs("div",{className:"d-flex ",children:[s.jsx(a,{}),s.jsx("div",{className:"flex-grow-1 p-4",children:s.jsx("h2",{children:"This is  Admin Dashboard page"})})]})})});export{o as default};

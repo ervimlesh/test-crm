@@ -1,0 +1,1 @@
+import{j as s}from"./index-DDoEHnfR.js";import{L as i}from"./Layout-Co7qzEc2.js";import{S as o}from"./SideBar-DCoEgSRU.js";const m=()=>s.jsx(i,{children:s.jsxs("div",{className:"d-flex ",children:[s.jsx(o,{}),s.jsx("div",{className:"",children:"All Admin Booking  page"})]})});export{m as default};

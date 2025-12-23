@@ -1,0 +1,1 @@
+import{j as e}from"./index-DDoEHnfR.js";const t=()=>e.jsxs("div",{style:{textAlign:"center",padding:"50px"},children:[e.jsx("h1",{children:"Access Denied"}),e.jsx("p",{children:"Your IP is not authorized to access this CRM."})]});export{t as default};

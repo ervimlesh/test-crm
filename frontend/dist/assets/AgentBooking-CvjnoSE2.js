@@ -1,0 +1,1 @@
+import{j as e}from"./index-DDoEHnfR.js";import{S as s}from"./SideBar-DCoEgSRU.js";import{L as r}from"./Layout-Co7qzEc2.js";const a=()=>e.jsx(r,{children:e.jsxs("div",{className:"d-flex ",children:[e.jsx(s,{}),e.jsx("h5",{className:"text-center",children:"Agents booking will be displayed here"})]})});export{a as default};

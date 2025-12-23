@@ -1,0 +1,1 @@
+import{j as r}from"./index-DDoEHnfR.js";import{L as s}from"./Layout-Co7qzEc2.js";const a=()=>r.jsx(s,{children:r.jsx("div",{className:"text-center mt-5",children:"UserDashboard1"})});export{a as default};

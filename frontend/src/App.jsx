@@ -1,11 +1,11 @@
 import React, { useEffect, Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes, Navigate } from "react-router-dom";
-import PrivateRoute from "./routes/PrivateRoute.jsx";
-import SuperAdminRoute from "./routes/SuperAdminRoute.jsx";
-import AdminRoute from "./routes/AdminRoute.jsx";
-import UserRoute from "./routes/UserRoute.jsx";
-import RoleRoute from "./routes/RoleRoute.jsx";
+import PrivateRoute from "./Routes/PrivateRoute.jsx";
+import SuperAdminRoute from "./Routes/SuperAdminRoute.jsx";
+import AdminRoute from "./Routes/AdminRoute.jsx";
+import UserRoute from "./Routes/UserRoute.jsx";
+import RoleRoute from "./Routes/RoleRoute.jsx";
 import { useAuth } from "./context/Auth.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Loader from "./components/Loader.jsx";

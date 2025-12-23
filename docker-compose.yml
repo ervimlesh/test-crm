@@ -1,52 +1,52 @@
-version: "3.8"
+  version: "3.8"
 
-services:
-  backend:
-    build:
-      context: ./backend
-    image: crm-backend:latest
-    container_name: crm-backend
-    restart: always
-    env_file:
-      - ./backend/.env
-    expose:
-      - "8000"
-    networks:
-      - crm-net
+  services:
+    backend:
+      build:
+        context: ./backend
+      image: crm-backend:latest
+      container_name: crm-backend
+      restart: always
+      env_file:
+        - ./backend/.env
+      expose:
+        - "8000"
+      networks:
+        - crm-net
 
-  frontend:
-    build:
-      context: ./frontend
-      args:
-        VITE_API_URL: "/api"
-    image: crm-frontend:latest
-    container_name: crm-frontend
-    restart: always
-    ports:
-      - "80:80"
-    depends_on:
-      - backend
-    networks:
-      - crm-net
+    frontend:
+      build:
+        context: ./frontend
+        args:
+          VITE_API_URL: "/api"
+      image: crm-frontend:latest
+      container_name: crm-frontend
+      restart: always
+      ports:
+        - "80:80"
+      depends_on:
+        - backend
+      networks:
+        - crm-net
 
-  zookeeper:
-    image: confluentinc/cp-zookeeper:7.4.1
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-    networks:
-      - crm-net
+    zookeeper:
+      image: confluentinc/cp-zookeeper:7.4.1
+      environment:
+        ZOOKEEPER_CLIENT_PORT: 2181
+      networks:
+        - crm-net
 
-  kafka:
-    image: confluentinc/cp-kafka:7.4.1
-    depends_on:
-      - zookeeper
-    environment:
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-    networks:
-      - crm-net
+    kafka:
+      image: confluentinc/cp-kafka:7.4.1
+      depends_on:
+        - zookeeper
+      environment:
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+        KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      networks:
+        - crm-net
 
-networks:
-  crm-net:
-    driver: bridge
+  networks:
+    crm-net:
+      driver: bridge

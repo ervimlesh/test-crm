@@ -1,0 +1,1 @@
+const i=({iceServers:a=[],onTrack:c,onIceCandidate:t,onNegotiationNeeded:o}={})=>{const n=new RTCPeerConnection({iceServers:a});return n.ontrack=e=>{c&&c(e)},n.onicecandidate=e=>{e.candidate&&t&&t(e.candidate)},n.onnegotiationneeded=async()=>{o&&o()},n};export{i as createPeerConnection};
