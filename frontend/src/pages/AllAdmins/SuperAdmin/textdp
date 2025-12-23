@@ -1,0 +1,51 @@
+public class SubsequenceSum {
+
+    public static boolean isSubsequenceSum(int[] arr, int n, int k) {
+        // use memoziation in this program with full code 
+      
+        int[][] memo = new int[n + 1][k + 1];
+        for (int i = 0; i <= n; i++) {
+            for (int j = 0; j <= k; j++) {
+                memo[i][j] = -1; // Initialize memoization table with -1
+            }
+        }
+        return isSubsequenceSumHelper(arr, n, k, memo);
+    }
+    
+    private static boolean isSubsequenceSumHelper(int[] arr, int n, int k, int[][] memo) {
+        // Check if the result is already computed
+        if (memo[n][k] != -1) {
+            return memo[n][k] == 1; // Convert to boolean
+        }
+
+
+      // Base case 1: If sum becomes 0, we found a subsequence
+        if (k == 0) {
+            return true;
+        }
+        // Base case 2: If array is exhausted but sum is not achieved
+        if (n == 0) {
+            return false;
+        }
+        // Recursive case:
+        // Include the current element (arr[n-1]) in the sum
+        boolean include = isSubsequenceSum(arr, n - 1, k - arr[n - 1]);
+        // Exclude the current element from the sum
+        boolean exclude = isSubsequenceSum(arr, n - 1, k);
+        
+        // Return true if either inclusion or exclusion leads to a valid subsequence
+        return include || exclude;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int k = 9; // Target sum
+        int n = arr.length;
+
+        if (isSubsequenceSum(arr, n, k)) {
+            System.out.println("A subsequence with sum " + k + " exists.");
+        } else {
+            System.out.println("No subsequence with sum " + k + " exists.");
+        }
+    }
+}

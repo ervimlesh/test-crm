@@ -1,0 +1,202 @@
+/* .crm_ul_li li a p{
+    display: none;
+} */
+ .crm_ul_li li a p{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+ }
+ .menu_btn{
+    display: none;
+ }
+ @media screen and (max-width: 1200px){
+      .crm_right{
+        width: 100%;
+      }
+      .crm_aside_c{
+        width: 25%;
+      }
+      .all_booking_grid{
+        grid-template-columns: repeat(2,1fr);
+      }
+      .width_control_in13{
+        width: 50%;
+      }
+      .width_control_in23{
+        width: 50%;
+      }
+      .width_control_in25{
+        width: 50%;
+      }
+      .width_control_in37{
+        width: 50%;
+      }
+ }
+ @media screen and (max-width: 768px){
+    .crm_aside_c{
+        position: fixed;
+        z-index: 9;
+        width: 40%;
+        display: none;
+    }
+    .crm_right{
+        width: 100%;
+    }
+    .all_booking_grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .menu_btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        border: none;
+        height: 75px;
+        width: 75px;
+        border-radius: 4px;
+        top: -53px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--color-dark);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .menu_btn::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: var(--color-dark);
+        width: 115%;
+        height: 115%;
+        border-radius: 50%;
+        opacity: 0.2;
+        z-index: -1;
+    }
+    .menu_btn img{
+        height: 30px;
+        width: auto;
+        filter: brightness(0) invert(1);
+    }
+    .footer_crm{
+        padding-top: 20px !important;
+    }
+    .cont_login{
+        padding: 20px;
+    }
+    .login_img{
+        margin: auto;
+    }
+    .agents_bg{
+        padding: 20px 30px;
+        border-radius: 20px 20px 0px 0px;
+    }
+    .ac_liness{
+        justify-content: center;
+        text-align: center;
+    }
+ }
+ @media screen and (max-width: 568px){
+    p{
+        font-size: 13px;
+    }
+    .crm_aside_c{ 
+        width: 70%;
+    }
+     .all_booking_grid{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .crm_right{
+        padding: 20px 10px;
+    }
+    .crm_title{
+        font-size: 17px;
+        width: calc(100% - 160px);
+    }
+    .profile_img {
+    margin-top: 0px;}
+    .profile_title{
+        font-size: 11px;
+    }
+    .profile_i img{
+        height: 25px;
+    }
+    .profile_content .font_12{
+        font-size: 10px;
+    }
+    .form_travel label{
+        font-size: 15px;
+    }
+    .form_travel .form_all{
+        font-size: 14px;
+        padding: 14px;
+    }
+    .create_bid{
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    .agent_title{
+        font-size: 24px;
+    }
+    .form_input .form_c{
+        padding: 17px 20px;
+    }
+    .forget_pass a{
+        font-size: 14px;
+    }
+    .login_title{
+        display: none;
+    }
+    .crm_right{
+        padding-bottom: 60px;
+    }
+    .send_auth_again{
+        font-size: 12px;
+        padding: 8px;
+    }
+     .width_control_in33{
+        width: 100%;
+     }
+     .send_in_btn{
+        margin-top: 13px;
+     }
+     .performer_grid{
+        grid-template-columns: repeat(2,1fr);
+     }
+     
+     .perf_title{
+        font-size: 12.5px;
+     }
+     .per_profit{
+        font-size: 10px;
+     }
+     .profit_title{
+        font-size: 11px;
+     }
+     .performer_img2 img{
+        height: 150px;
+     }
+      .reward_icon img{
+        height: 67px;
+     }
+     .view_booking_detail_modal_semi{
+        width: 94%;
+        padding: 20px;
+     }
+     .flight_d{
+        font-size: 22px;
+     }
+     .close_btnn{
+        width: 25px;
+        height: 25px;
+     }
+     .view_booking_detail_modal_semi{
+        padding-top: 3rem;
+     }
+ }
+ .crm_aside_c_none{
+  width: 0px;
+  opacity: 0;
+  visibility: hidden; 
+}

@@ -1,0 +1,158 @@
+.control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid #333;
+  gap: 20px;
+}
+
+.controls-left,
+.controls-center,
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.controls-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.control-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 70px;
+}
+
+.control-btn:hover {
+  background: #444;
+  transform: scale(1.05);
+}
+
+.control-btn.active {
+  background: #667eea;
+  color: white;
+}
+
+.control-btn.active:hover {
+  background: #764ba2;
+}
+
+.control-btn.sharing {
+  background: #ef4444;
+  animation: pulse 1s infinite;
+}
+
+.control-btn.sharing:hover {
+  background: #dc2626;
+}
+
+.control-btn.recording {
+  background: #ef4444;
+  animation: pulse 1s infinite;
+}
+
+.control-btn.recording:hover {
+  background: #dc2626;
+}
+
+.control-btn.end-call {
+  background: #ef4444;
+  padding: 8px 20px;
+  min-width: 80px;
+}
+
+.control-btn.end-call:hover {
+  background: #dc2626;
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-label {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* Recording Indicator */
+.recording-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #ef4444;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.recording-dot {
+  animation: blink 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .control-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .controls-left,
+  .controls-center,
+  .controls-right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .control-btn {
+    min-width: 60px;
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .btn-label {
+    font-size: 9px;
+  }
+
+  .recording-indicator {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}

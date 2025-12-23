@@ -1,0 +1,149 @@
+import React, { useEffect, useState } from 'react';
+import Layout from '../../components/Layout/Layout.jsx';
+import SideBar from '../../components/SideBar.jsx';
+import axios from 'axios';
+
+const FlightDeals = () => {
+  const [flightDeals, setFlightDeals] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 2;
+
+  useEffect(() => {
+    fetchFlightDeals();
+  }, []);
+
+  const fetchFlightDeals = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await axios.get('/api/v1/flights/get-flight');
+      setFlightDeals(res.data);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Something went wrong!');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentDeals = flightDeals?.data?.slice(startIndex, startIndex + itemsPerPage);
+  const totalPages = Math.ceil((flightDeals?.data?.length || 0) / itemsPerPage);
+
+  return (
+    <Layout>
+      <div className="d-flex">
+        <SideBar />
+        <div className="flex-grow-1 p-4">
+          <h2 className='text-start'>All flight details</h2>
+          <table className="table table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>DOB</th>
+                <th>Card Holder</th>
+                <th>Card Number</th>
+                <th>Card Details</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Postal Code</th>
+                <th>Fly From</th>
+                <th>Fly To</th>
+                <th>City From</th>
+                <th>City To</th>
+                <th>Price</th>
+                <th>ADT</th>
+                <th>IFT</th>
+                <th>CHD</th>
+                <th>Total Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {currentDeals && currentDeals.length > 0 ? (
+                currentDeals.map((deal, index) => (
+                  <tr key={deal._id}>
+                    <td>{startIndex + index + 1}</td>
+                    <td>{deal.firstName}</td>
+                    <td>{deal.middleName || '-'}</td>
+                    <td>{deal.mobile}</td>
+                    <td>{deal.email}</td>
+                    <td>{new Date(deal.dob).toLocaleDateString()}</td>
+                    <td>{deal.cardHolderName}</td>
+                    <td>{deal.cardNumber}</td>
+                    <td>{deal.cardDetails}</td>
+                    <td>{deal.address}</td>
+                    <td>{deal.country}</td>
+                    <td>{deal.state}</td>
+                    <td>{deal.city}</td>
+                    <td>{deal.postalCode}</td>
+                    <td>{deal?.flight?.flyFrom}</td>
+                    <td>{deal?.flight?.flyTo}</td>
+                    <td>{deal?.flight?.cityFrom}</td>
+                    <td>{deal?.flight?.cityTo}</td>
+                    <td>{deal?.flight?.price}</td>
+                    <td>{deal.adt}</td>
+                    <td>{deal.ift}</td>
+                    <td>{deal.chd}</td>
+                    <td>{deal.totalAmount}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="23" className="text-center">
+                    {loading ? 'Loading...' : error ? error : 'No flight deals available.'}
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+
+          {/* Pagination */}
+          <div className="pagination mt-3">
+            <button
+              className="btn btn-secondary mx-1"
+              onClick={() => handlePageChange(currentPage - 3)}
+              disabled={currentPage <= 3}
+            >
+              Prev
+            </button>
+
+            {Array.from({ length: totalPages }, (_, i) =>
+              i + 1 > currentPage - 3 && i + 1 < currentPage + 3 ? (
+                <button
+                  key={i}
+                  className={`btn ${currentPage === i + 1 ? 'btn-primary' : 'btn-secondary'} mx-1`}
+                  onClick={() => handlePageChange(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              ) : null
+            )}
+
+            <button
+              className="btn btn-secondary mx-1"
+              onClick={() => handlePageChange(currentPage + 3)}
+              disabled={currentPage + 3 > totalPages}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default FlightDeals;

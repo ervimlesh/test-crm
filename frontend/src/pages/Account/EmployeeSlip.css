@@ -1,0 +1,52 @@
+.employee-slip-page .slip-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+.slip-card .muted { color: #666; }
+.small.muted { color:#777; }
+.form-row .form-group { margin-right: 12px; }
+
+
+
+/* ---------------------------------------------------------- Employeehome.css---------------------------------*/
+
+.employee-home {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 days per row */
+  gap: 10px;
+}
+
+.day-box {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.day-box.present {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.day-box.absent {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.day-number {
+  display: block;
+  font-size: 14px;
+}
+
+.status {
+  font-size: 18px;
+}
+/* --------------------------------------------------------------------end .employee-home------------------------ */
